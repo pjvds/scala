@@ -1,5 +1,5 @@
 name: scala
-verion: 0.0.3
+verion: 0.0.4
 inherits: wercker/ubuntu12.04-webessentials
 type: main
 os: ubuntu@12.04
