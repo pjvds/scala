@@ -11,13 +11,13 @@ script: |-
   tar zxvf scala-2.10.0.tgz
   sudo mv scala-2.10.0 /usr/share/scala
 
-  ln -s /usr/share/scala/bin/scala /usr/bin/scala
-  ln -s /usr/share/scala/bin/scalac /usr/bin/scalac
-  ln -s /usr/share/scala/bin/fsc /usr/bin/fsc
-  ln -s /usr/share/scala/bin/sbaz /usr/bin/sbaz
-  ln -s /usr/share/scala/bin/sbaz-setup /usr/bin/sbaz-setup
-  ln -s /usr/share/scala/bin/scaladoc /usr/bin/scaladoc
-  ln -s /usr/share/scala/bin/scalap /usr/bin/scalap
+  sudo ln -s /usr/share/scala/bin/scala /usr/bin/scala
+  sudo ln -s /usr/share/scala/bin/scalac /usr/bin/scalac
+  sudo ln -s /usr/share/scala/bin/fsc /usr/bin/fsc
+  sudo ln -s /usr/share/scala/bin/sbaz /usr/bin/sbaz
+  sudo ln -s /usr/share/scala/bin/sbaz-setup /usr/bin/sbaz-setup
+  sudo ln -s /usr/share/scala/bin/scaladoc /usr/bin/scaladoc
+  sudo ln -s /usr/share/scala/bin/scalap /usr/bin/scalap
 
   wget http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch//0.12.3/sbt-launch.jar
   printf 'java -Xmx512M -jar `dirname $0`/sbt-launch.jar "$@"' > sbt
