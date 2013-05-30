@@ -1,0 +1,26 @@
+name : scala
+inherits : wercker/ubuntu12.04-webessentials
+type : main
+os : ubuntu@12.04
+script : |-
+  apt-get install openjdk-7-jre -qq
+  
+	$sudo wget http://www.scala-lang.org/downloads/distrib/files/scala-2.10.0.tgz
+	tar zxvf scala-2.10.0.tgz
+	mv scala-2.10.0 /usr/share/scala
+	
+	ln -s /usr/share/scala/bin/scala /usr/bin/scala
+	ln -s /usr/share/scala/bin/scalac /usr/bin/scalac
+	ln -s /usr/share/scala/bin/fsc /usr/bin/fsc
+	ln -s /usr/share/scala/bin/sbaz /usr/bin/sbaz
+	ln -s /usr/share/scala/bin/sbaz-setup /usr/bin/sbaz-setup
+	ln -s /usr/share/scala/bin/scaladoc /usr/bin/scaladoc
+	ln -s /usr/share/scala/bin/scalap /usr/bin/scalap
+
+	wget http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch//0.12.3/sbt-launch.jar
+	printf 'java -Xmx512M -jar `dirname $0`/sbt-launch.jar "$@"' > sbt
+	chmod +x ./sbt
+	sudo mv sbt /usr/share/sbt
+	sudo mv sbt-launch.jar /usr/share/sbt-launch.jar
+	sudo ln -s /usr/share/sbt /usr/bin/sbt
+	sudo ln -s /usr/share/sbt-launch.jar /usr/bin/sbt-launch.jar
