@@ -5,6 +5,7 @@ type: main
 os: ubuntu@12.04
 env:
   SBT_OPTS: '''-XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512M'''
+  IVY_CACHE_DIR: '"$WERCKER_CACHE_DIR/ivy"'
 script: |-
   sudo apt-get update
   sudo apt-get install openjdk-7-jdk -qq
@@ -22,7 +23,7 @@ script: |-
   sudo ln -s /usr/share/scala/bin/scalap /usr/bin/scalap
 
   wget http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch//0.12.3/sbt-launch.jar
-  printf 'java -Xmx512M -jar ${SBT_OPTS} `dirname $0`/sbt-launch.jar "$@"' > sbt
+  printf 'java -Dsbt.ivy.home=${IVY_CACHE_DIR} -Xmx512M -jar ${SBT_OPTS} `dirname $0`/sbt-launch.jar "$@"' > sbt
   sudo chmod +x ./sbt
   sudo mv sbt /usr/share/sbt
   sudo mv sbt-launch.jar /usr/share/sbt-launch.jar
