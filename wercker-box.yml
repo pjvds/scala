@@ -1,5 +1,5 @@
 name: scala
-version: 0.0.7
+version: 0.0.8
 inherits: wercker/ubuntu12.04-webessentials
 type: main
 os: ubuntu@12.04
@@ -29,3 +29,5 @@ script: |-
   sudo mv sbt-launch.jar /usr/share/sbt-launch.jar
   sudo ln -s /usr/share/sbt /usr/bin/sbt
   sudo ln -s /usr/share/sbt-launch.jar /usr/bin/sbt-launch.jar
+  
+  sudo apt-get install maven
