@@ -1,4 +1,4 @@
-name: scala
+name: scala-sbt
 version: 0.0.81
 inherits: wercker/ubuntu12.04-webessentials@0.0.3
 type: main
