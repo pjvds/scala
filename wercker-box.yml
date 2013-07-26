@@ -1,10 +1,10 @@
 name: scala
-version: 0.0.81
+version: 0.0.82
 inherits: wercker/ubuntu12.04-webessentials@0.0.3
 type: main
 os: ubuntu@12.04
 env:
-  SBT_OPTS: '''-XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512M'''
+  SBT_OPTS: '''-XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512M'''
   IVY_CACHE_DIR: '"$WERCKER_CACHE_DIR/ivy"'
 script: |-
   sudo apt-get update
