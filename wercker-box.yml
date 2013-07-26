@@ -23,7 +23,7 @@ script: |-
   sudo ln -s /usr/share/scala/bin/scalap /usr/bin/scalap
 
   wget http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch//0.12.3/sbt-launch.jar
-  printf 'java -Dsbt.ivy.home=${IVY_CACHE_DIR} -Xmx512M -jar ${SBT_OPTS} `dirname $0`/sbt-launch.jar "$@"' > sbt
+  printf 'java -Dsbt.ivy.home=${IVY_CACHE_DIR} -Xmx512M ${SBT_OPTS} -jar `dirname $0`/sbt-launch.jar "$@"' > sbt
   sudo chmod +x ./sbt
   sudo mv sbt /usr/share/sbt
   sudo mv sbt-launch.jar /usr/share/sbt-launch.jar
